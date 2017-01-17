@@ -12,24 +12,12 @@ class LineItem
   end
 
   def taxes
-    round_up(quantity * tax_calculator.tax_for(price))
+    quantity * tax_calculator.tax_for(price)
   end
 
   private
 
   def tax_calculator
     TaxCalculator.new(product)
-  end
-
-  def round_up(value, proximity = BigDecimal.new('0.05'))
-    rest = value % proximity
-    result =
-      if rest == 0.0
-        value
-      else
-        value + proximity - rest
-      end
-
-    result.round(2)
   end
 end

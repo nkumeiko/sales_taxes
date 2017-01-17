@@ -8,14 +8,14 @@ RSpec.describe TaxCalculator do
     context 'imported goods' do
       let(:product) { 'imported chocolate bar' }
       it 'returns additional 5% tax' do
-        expect(subject.tax_for(price)).to eq(BigDecimal.new('0.2495'))
+        expect(subject.tax_for(price)).to eq(BigDecimal.new('0.25'))
       end
     end
 
     context 'all goods except books, food, medical products' do
       let(:product) { 'music cd' }
       it 'returns additional 10% tax' do
-        expect(subject.tax_for(price)).to eq(BigDecimal.new('0.499'))
+        expect(subject.tax_for(price)).to eq(BigDecimal.new('0.5'))
       end
     end
 
@@ -29,7 +29,7 @@ RSpec.describe TaxCalculator do
     context 'imported regular products' do
       let(:product) { 'imported music cd' }
       it 'returns 15% tax in total' do
-        expect(subject.tax_for(price)).to eq(BigDecimal.new('0.7485'))
+        expect(subject.tax_for(price)).to eq(BigDecimal.new('0.75'))
       end
     end
   end

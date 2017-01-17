@@ -17,7 +17,7 @@ class TaxCalculator
       value += price * REGULAR_GOODS_TAX
     end
 
-    value
+    round_up(value)
   end
 
   private
@@ -38,5 +38,17 @@ class TaxCalculator
 
   def medical_product?
     product.include?('pills')
+  end
+
+  def round_up(value, proximity = BigDecimal.new('0.05'))
+    rest = value % proximity
+    result =
+      if rest == 0.0
+        value
+      else
+        value + proximity - rest
+      end
+
+    result.round(2)
   end
 end

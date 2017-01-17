@@ -6,10 +6,11 @@ A simple console app of purchasing list of goods to receive a receipt.
 
 ## Running the application
 ```bash
-rake receive_receipt['db/input1.csv']
+bundle install
+bundle exec rake receive_receipt['db/input1.csv']
 ```
 
 ## Running specs
 ```bash
-rspec
+bundle exec rspec
 ```

@@ -1,4 +1,7 @@
 # Sales Taxes
+
+[![Build Status](https://travis-ci.org/nkumeiko/sales_taxes.svg?branch=master)](https://travis-ci.org/nkumeiko/sales_taxes)
+
 A simple console app of purchasing list of goods to receive a receipt.
 
 ## Running the application

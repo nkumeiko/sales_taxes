@@ -9,8 +9,6 @@ RSpec.describe CsvIO do
     ]
   end
 
-  let(:io) { StringIO.new }
-
   let(:output) do
     "1, book, 12.49\n" \
     "1, music cd, 16.49\n" \
@@ -27,6 +25,8 @@ RSpec.describe CsvIO do
   end
 
   describe '.write' do
+    let(:io) { StringIO.new }
+
     it 'checkout to the output' do
       described_class.write(Basket.new(data), io)
       expect(io.string).to eq(output)

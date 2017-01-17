@@ -1,6 +1,6 @@
 class TaxCalculator
-  IMPORTED = BigDecimal.new('0.05')
-  REGULAR = BigDecimal.new('0.1')
+  IMPORTED_GOODS_TAX = BigDecimal.new('0.05')
+  REGULAR_GOODS_TAX = BigDecimal.new('0.1')
 
   def initialize(product)
     @product = product.downcase
@@ -10,11 +10,11 @@ class TaxCalculator
     value = BigDecimal.new('0')
 
     if imported?
-      value += price * IMPORTED
+      value += price * IMPORTED_GOODS_TAX
     end
 
     unless book? || food? || medical_product?
-      value += price * REGULAR
+      value += price * REGULAR_GOODS_TAX
     end
 
     value
